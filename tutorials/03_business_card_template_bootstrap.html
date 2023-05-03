@@ -3,22 +3,39 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Business Card</title>
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Business Card Template</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div>
-    <div>
-      <div>
-        <h1>Your Name</h1>
-        <p>Job Title</p>
-        <p>Company Name</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>Email: you@example.com</p>
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://via.placeholder.com/150x150" alt="Profile Picture" class="img-fluid">
+          </div>
+          <div class="col-md-9">
+            <h3 class="card-title">John Doe</h3>
+            <h6 class="card-subtitle mb-2 text-muted">Web Developer</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur elit eu elit
+              scelerisque euismod. Nam ullamcorper, quam id eleifend ultrices, magna sapien tincidunt magna, eget
+              malesuada arcu lacus vel nulla.</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-geo-alt-fill"></i> 123 Main St, Anytown, USA</li>
+              <li><i class="bi bi-envelope-fill"></i> john.doe@example.com</li>
+              <li><i class="bi bi-phone-fill"></i> 555-555-5555</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <!-- Bootstrap JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
