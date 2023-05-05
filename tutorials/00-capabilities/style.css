@@ -1,0 +1,28 @@
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+/* Languages & Fonts */
+
+.font-1 {
+    font-family: Playfair Display;
+}
+
+.font-2 {
+    font-family: Tiro Devanagari Hindi;
+}
+
+.font-3 {
+    font-family: Reem Kufi Ink;
+}
+
+.text-deco-1 {
+    text-decoration-line: underline;
+}
+
+.text-deco-2 {
+    text-decoration-line: overline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #10b981;
+    color: rgb(225 29 72);
+}
