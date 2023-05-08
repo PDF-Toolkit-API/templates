@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!--  Web Fonts  -->
@@ -11,6 +11,8 @@
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <!--  Datatable  -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <!--  Chartjs  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--    <link rel="stylesheet" href="./style.css">-->
 
@@ -57,6 +59,13 @@
             text-decoration-thickness: 2px;
             text-decoration-color: #10b981;
             color: rgb(225 29 72);
+        }
+
+        /* Chart */
+        .chart {
+            display: flex;
+            width: 100%;
+            justify-content: center;
         }
 
         /* Tables */
@@ -114,6 +123,75 @@
         فهرست واشتدّت, بلا إجلاء وتنصيب تم. بـ كلّ الخاسرة ويكيبيديا،, دفّة أعمال المؤلّفة قد حدى, أخر أم الساحل بمحاولة
         الأسيوي.
     </p>
+</section>
+<section class="page-break">
+    <h2>Chart</h2>
+    <div class="chart">
+        <canvas id="myChart"></canvas>
+    </div>
+    <h3>Explications</h3>
+    <p>
+        Ea minima ducimus qui dolores atque qui unde dolorem ut atque deserunt a eaque facere et consequatur voluptatem.
+        Qui Quis deserunt eum laborum incidunt At nihil consequuntur qui Quis numquam? Sed cumque quis non odit libero
+        cum nihil exercitationem? A voluptas officiis et minima nobis et officiis labore ut consequatur quia et sequi
+        enim?
+    </p>
+    <script>
+        const CHART_COLORS = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+        };
+
+        function rand_numbers() {
+            var data = [];
+
+            for (var i = 0; i < 5; ++i) {
+                data.push(Math.random() * 100);
+            }
+            return data;
+        }
+
+        const data = {
+            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+            datasets: [
+                {
+                    label: 'Dataset 1',
+                    data: rand_numbers(),
+                    backgroundColor: Object.values(CHART_COLORS),
+                }
+            ]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Doughnut Chart'
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'Custom Chart Subtitle'
+                    }
+                }
+            },
+        };
+
+        const ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, config);
+        window.addEventListener('beforeprint', () => {
+            myChart.resize(700, 700);
+        });
+    </script>
 </section>
 <section class="page-break">
     <h2>Table</h2>
