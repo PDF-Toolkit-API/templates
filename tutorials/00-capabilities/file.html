@@ -6,11 +6,86 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tiro+Devanagari+Hindi">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reem+Kufi+Ink">
+    <!--  JQuery  -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!--  Datatable  -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
-
-<!--    <link rel="stylesheet" href="./style.css">-->
+    <!--    <link rel="stylesheet" href="./style.css">-->
 
     <title>Latest HTML and CSS Features</title>
+    <style>
+        /* Document Format */
+        @page {
+            size: A4;
+            margin-bottom: 50px;
+            margin-top: 100px;
+        }
+
+        /* Base */
+        body {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+
+        /* Page Separator */
+        .page-break {
+            break-before: page;
+            margin-top: 30px;
+        }
+
+        /* Languages & Fonts */
+
+        .font-1 {
+            font-family: Playfair Display;
+        }
+
+        .font-2 {
+            font-family: Tiro Devanagari Hindi;
+        }
+
+        .font-3 {
+            font-family: Reem Kufi Ink;
+        }
+
+        .text-deco-1 {
+            text-decoration-line: underline;
+        }
+
+        .text-deco-2 {
+            text-decoration-line: overline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #10b981;
+            color: rgb(225 29 72);
+        }
+
+        /* Tables */
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        thead tr {
+            background-color: #e81c4f;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        th, td {
+            padding: 0.1in 0.1in;
+        }
+    </style>
 </head>
 <body>
 <section>
@@ -19,18 +94,280 @@
     <p>
         The following examples use Google Fonts.
     </p>
-    <h3>Lorem Ipsum - Font: Playfair Display - With text Decoration</h3>
+    <h3>Lorem Ipsum - Font: Playfair Display - with text decoration</h3>
     <p class="font-1">
-        Lorem ipsum dolor sit amet. <span class="text-deco-1">Ex eveniet corrupti</span> et voluptas quisquam est <span class="text-deco-2">tempora eligendi.</span> Et deserunt tempore ut exercitationem porro vel molestiae omnis est velit quia? Eum odit dolorem non dolor doloremque qui consequatur tempore non iure quia a internos sapiente vel corrupti nulla et nostrum nulla.
+        Lorem ipsum dolor sit amet. <span class="text-deco-1">Ex eveniet corrupti</span> et voluptas quisquam est <span
+            class="text-deco-2">tempora eligendi.</span> Et deserunt tempore ut exercitationem porro vel molestiae omnis
+        est velit quia? Eum odit dolorem non dolor doloremque qui consequatur tempore non iure quia a internos sapiente
+        vel corrupti nulla et nostrum nulla.
     </p>
     <h3>Hindi - Font: Tiro Devanagari Hindi</h3>
     <p class="font-2">
-        हमारी पुस्तक वर्णित सार्वजनिक कीसे ऎसाजीस विनिमय अधिकांश अपनि सादगि बातसमय मुख्यतह प्रतिबध्दता समजते होभर पढने डाले। तरहथा। मेंभटृ बाधा संपादक प्रमान पहोच। पुर्व ।क वैश्विक निर्देश केवल ढांचा आंतरजाल सम्पर्क जिवन बनाति समस्याओ विकेन्द्रियकरण हमारी उद्योग वास्तविक अथवा रिती अनुवाद प्रेरना देखने
+        हमारी पुस्तक वर्णित सार्वजनिक कीसे ऎसाजीस विनिमय अधिकांश अपनि सादगि बातसमय मुख्यतह प्रतिबध्दता समजते होभर पढने
+        डाले। तरहथा। मेंभटृ बाधा संपादक प्रमान पहोच। पुर्व ।क वैश्विक निर्देश केवल ढांचा आंतरजाल सम्पर्क जिवन बनाति
+        समस्याओ विकेन्द्रियकरण हमारी उद्योग वास्तविक अथवा रिती अनुवाद प्रेरना देखने
     </p>
     <h3>Arabic RTL (Right to Left Script) - Font: Reem Kufi Ink</h3>
     <p class="font-3">
-        جيما وباءت ماليزيا، يبق أي, يتم كرسي التي إستعمل ما. قد حاول تغييرات التخطيط حدى, تعد أم ساعة وحلفاؤها الإيطالية. خطّة تسمّى الولايات فقد في, فعل لم والكساد باستحداث الأمريكي. بين فرنسا بالرّغم ويكيبيديا أم, فعل بل فهرست واشتدّت, بلا إجلاء وتنصيب تم. بـ كلّ الخاسرة ويكيبيديا،, دفّة أعمال المؤلّفة قد حدى, أخر أم الساحل بمحاولة الأسيوي.
+        جيما وباءت ماليزيا، يبق أي, يتم كرسي التي إستعمل ما. قد حاول تغييرات التخطيط حدى, تعد أم ساعة وحلفاؤها
+        الإيطالية. خطّة تسمّى الولايات فقد في, فعل لم والكساد باستحداث الأمريكي. بين فرنسا بالرّغم ويكيبيديا أم, فعل بل
+        فهرست واشتدّت, بلا إجلاء وتنصيب تم. بـ كلّ الخاسرة ويكيبيديا،, دفّة أعمال المؤلّفة قد حدى, أخر أم الساحل بمحاولة
+        الأسيوي.
     </p>
+</section>
+<section class="page-break">
+    <h2>Table</h2>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011-04-25</td>
+            <td>$320,800</td>
+        </tr>
+        <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>63</td>
+            <td>2011-07-25</td>
+            <td>$170,750</td>
+        </tr>
+        <tr>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>San Francisco</td>
+            <td>66</td>
+            <td>2009-01-12</td>
+            <td>$86,000</td>
+        </tr>
+        <tr>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2012-03-29</td>
+            <td>$433,060</td>
+        </tr>
+        <tr>
+            <td>Airi Satou</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>33</td>
+            <td>2008-11-28</td>
+            <td>$162,700</td>
+        </tr>
+        <tr>
+            <td>Brielle Williamson</td>
+            <td>Integration Specialist</td>
+            <td>New York</td>
+            <td>61</td>
+            <td>2012-12-02</td>
+            <td>$372,000</td>
+        </tr>
+        <tr>
+            <td>Herrod Chandler</td>
+            <td>Sales Assistant</td>
+            <td>San Francisco</td>
+            <td>59</td>
+            <td>2012-08-06</td>
+            <td>$137,500</td>
+        </tr>
+        <tr>
+            <td>Rhona Davidson</td>
+            <td>Integration Specialist</td>
+            <td>Tokyo</td>
+            <td>55</td>
+            <td>2010-10-14</td>
+            <td>$327,900</td>
+        </tr>
+        <tr>
+            <td>Colleen Hurst</td>
+            <td>Javascript Developer</td>
+            <td>San Francisco</td>
+            <td>39</td>
+            <td>2009-09-15</td>
+            <td>$205,500</td>
+        </tr>
+        <tr>
+            <td>Sonya Frost</td>
+            <td>Software Engineer</td>
+            <td>Edinburgh</td>
+            <td>23</td>
+            <td>2008-12-13</td>
+            <td>$103,600</td>
+        </tr>
+        <tr>
+            <td>Jena Gaines</td>
+            <td>Office Manager</td>
+            <td>London</td>
+            <td>30</td>
+            <td>2008-12-19</td>
+            <td>$90,560</td>
+        </tr>
+        <tr>
+            <td>Quinn Flynn</td>
+            <td>Support Lead</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2013-03-03</td>
+            <td>$342,000</td>
+        </tr>
+        <tr>
+            <td>Charde Marshall</td>
+            <td>Regional Director</td>
+            <td>San Francisco</td>
+            <td>36</td>
+            <td>2008-10-16</td>
+            <td>$470,600</td>
+        </tr>
+        <tr>
+            <td>Haley Kennedy</td>
+            <td>Senior Marketing Designer</td>
+            <td>London</td>
+            <td>43</td>
+            <td>2012-12-18</td>
+            <td>$313,500</td>
+        </tr>
+        <tr>
+            <td>Tatyana Fitzpatrick</td>
+            <td>Regional Director</td>
+            <td>London</td>
+            <td>19</td>
+            <td>2010-03-17</td>
+            <td>$385,750</td>
+        </tr>
+        <tr>
+            <td>Michael Silva</td>
+            <td>Marketing Designer</td>
+            <td>London</td>
+            <td>66</td>
+            <td>2012-11-27</td>
+            <td>$198,500</td>
+        </tr>
+        <tr>
+            <td>Paul Byrd</td>
+            <td>Chief Financial Officer (CFO)</td>
+            <td>New York</td>
+            <td>64</td>
+            <td>2010-06-09</td>
+            <td>$725,000</td>
+        </tr>
+        <tr>
+            <td>Gloria Little</td>
+            <td>Systems Administrator</td>
+            <td>New York</td>
+            <td>59</td>
+            <td>2009-04-10</td>
+            <td>$237,500</td>
+        </tr>
+        <tr>
+            <td>Bradley Greer</td>
+            <td>Software Engineer</td>
+            <td>London</td>
+            <td>41</td>
+            <td>2012-10-13</td>
+            <td>$132,000</td>
+        </tr>
+        <tr>
+            <td>Dai Rios</td>
+            <td>Personnel Lead</td>
+            <td>Edinburgh</td>
+            <td>35</td>
+            <td>2012-09-26</td>
+            <td>$217,500</td>
+        </tr>
+        <tr>
+            <td>Jenette Caldwell</td>
+            <td>Development Lead</td>
+            <td>New York</td>
+            <td>30</td>
+            <td>2011-09-03</td>
+            <td>$345,000</td>
+        </tr>
+        <tr>
+            <td>Yuri Berry</td>
+            <td>Chief Marketing Officer (CMO)</td>
+            <td>New York</td>
+            <td>40</td>
+            <td>2009-06-25</td>
+            <td>$675,000</td>
+        </tr>
+        <tr>
+            <td>Caesar Vance</td>
+            <td>Pre-Sales Support</td>
+            <td>New York</td>
+            <td>21</td>
+            <td>2011-12-12</td>
+            <td>$106,450</td>
+        </tr>
+        <tr>
+            <td>Doris Wilder</td>
+            <td>Sales Assistant</td>
+            <td>Sydney</td>
+            <td>23</td>
+            <td>2010-09-20</td>
+            <td>$85,600</td>
+        </tr>
+        <tr>
+            <td>Angelica Ramos</td>
+            <td>Chief Executive Officer (CEO)</td>
+            <td>London</td>
+            <td>47</td>
+            <td>2009-10-09</td>
+            <td>$1,200,000</td>
+        </tr>
+        <tr>
+            <td>Gavin Joyce</td>
+            <td>Developer</td>
+            <td>Edinburgh</td>
+            <td>42</td>
+            <td>2010-12-22</td>
+            <td>$92,575</td>
+        </tr>
+        <tr>
+            <td>Jennifer Chang</td>
+            <td>Regional Director</td>
+            <td>Singapore</td>
+            <td>28</td>
+            <td>2010-11-14</td>
+            <td>$357,650</td>
+        </tr>
+        <tr>
+            <td>Brenden Wagner</td>
+            <td>Software Engineer</td>
+            <td>San Francisco</td>
+            <td>28</td>
+            <td>2011-06-07</td>
+            <td>$206,850</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable(
+                {
+                    paging: false,
+                    "searching": false,
+                    "pageLength": 50,
+                    "ordering": false,
+                    "info": false,
+                }
+            );
+        });
+    </script>
 </section>
 </body>
 </html>
