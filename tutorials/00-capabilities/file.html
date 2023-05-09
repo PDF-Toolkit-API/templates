@@ -13,27 +13,63 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <!--  Chartjs  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--    <link rel="stylesheet" href="./style.css">-->
+    <!--  Mathjax  -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <title>Latest HTML and CSS Features</title>
     <style>
         /* Document Format */
+
         @page {
             size: A4;
             margin-bottom: 50px;
             margin-top: 100px;
         }
 
+        /* Page Separator */
+
+        .page-break {
+            break-before: page;
+        }
+
         /* Base */
+
         body {
             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         }
 
-        /* Page Separator */
-        .page-break {
-            break-before: page;
-            margin-top: 30px;
+        /* CSS Features */
+
+        .box {
+            display: flex;
+            flex-flow: row;
+            width: 100%;
+            height: 230px;
+        }
+
+        .left {
+            width: 50%;
+        }
+
+        .left > img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .right {
+            width: 50%;
+            background: #3056D3;
+            padding: 10px 20px;
+            color: #eeeeee;
+            line-height: 25px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .right > ul {
+            padding-left: 20px;
         }
 
         /* Languages & Fonts */
@@ -62,6 +98,7 @@
         }
 
         /* Chart */
+
         .chart {
             display: flex;
             width: 100%;
@@ -94,9 +131,45 @@
         th, td {
             padding: 0.1in 0.1in;
         }
+
+        /* Multi Column Design */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .grid-col-span-2 {
+            grid-column: span 2 / span 2;
+        }
+
+        .grid-col-span-3 {
+            grid-column: span 3 / span 3;
+        }
+
+
     </style>
 </head>
 <body>
+<section>
+    <h2>Latest HTML & CSS Features</h2>
+    <div class="box">
+        <div class="left">
+            <img alt="Alt attribute of image" title="Hover to see title"
+                 src="https://pdftoolkitapi.com/assets/capability-image-pdf.jpg"/>
+        </div>
+        <div class="right">
+            <h3>HTML & CSS Features</h3>
+            <ul>
+                <li>SVG</li>
+                <li>Canvas</li>
+                <li>CSS Flexbox & Grid</li>
+                <li>CSS Variables, Shapes, Transform and Blend Modes</li>
+            </ul>
+        </div>
+    </div>
+</section>
 <section>
     <h2>Languages & Fonts</h2>
     <p id="boop"></p>
@@ -124,12 +197,136 @@
         الأسيوي.
     </p>
 </section>
+<section>
+    <h2>Equations</h2>
+    <p>Using MathJax</p>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow data-mjx-texclass="ORD">
+            <mover>
+                <mi mathvariant="normal">&#x2207;</mi>
+                <mo stretchy="false">&#x2192;</mo>
+            </mover>
+        </mrow>
+        <mo>&#xD7;</mo>
+        <mrow data-mjx-texclass="ORD">
+            <mover>
+                <mi>F</mi>
+                <mo stretchy="false">&#x2192;</mo>
+            </mover>
+        </mrow>
+        <mo>=</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>z</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>y</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>y</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>z</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">i</mi>
+        </mrow>
+        <mo>+</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>x</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>z</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>z</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>x</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">j</mi>
+        </mrow>
+        <mo>+</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>y</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>x</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>x</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>y</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">k</mi>
+        </mrow>
+    </math>
+</section>
 <section class="page-break">
     <h2>Chart</h2>
     <div class="chart">
         <canvas id="myChart"></canvas>
     </div>
-    <h3>Explications</h3>
+    <h3>Explanation</h3>
     <p>
         Ea minima ducimus qui dolores atque qui unde dolorem ut atque deserunt a eaque facere et consequatur voluptatem.
         Qui Quis deserunt eum laborum incidunt At nihil consequuntur qui Quis numquam? Sed cumque quis non odit libero
@@ -143,19 +340,21 @@
             yellow: 'rgb(255, 205, 86)',
             green: 'rgb(75, 192, 192)',
             blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
         };
 
         function rand_numbers() {
             var data = [];
 
-            for (var i = 0; i < 5; ++i) {
+            for (var i = 0; i < 7; ++i) {
                 data.push(Math.random() * 100);
             }
             return data;
         }
 
         const data = {
-            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Grey'],
             datasets: [
                 {
                     label: 'Dataset 1',
@@ -447,5 +646,64 @@
         });
     </script>
 </section>
+<section>
+    <h2>Multi Column Design</h2>
+    <div class="grid">
+        <div class="">
+            <h3>Sub Section 01</h3>
+            <p>
+                Est quia necessitatibus ex enim delectus in necessitatibus molestiae. Et nesciunt blanditiis 33 tempore
+                quos
+                in ipsum omnis. Et necessitatibus ullam non libero perferendis 33 repellat sint in nemo expedita est
+                Quis
+                ullam in earum sunt.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 02</h3>
+            <p>
+                Ut dolore dignissimos non laudantium quia et dicta iure est nobis atque quo laudantium sint qui omnis
+                nesciunt aut dolorum voluptatibus. Id voluptatum vitae aut tempore provident qui enim sapiente nam
+                distinctio molestiae sed voluptates mollitia At quis voluptate.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 03</h3>
+            <p>
+                Hic asperiores eaque et perspiciatis corporis ut nostrum nostrum id quia suscipit. Est maiores quisquam
+                est distinctio aspernatur et temporibus tenetur vel sunt reiciendis rem facere repellat ea porro esse
+                qui velit illo. 33 consequatur nihil eum consequuntur fuga aut maxime quia.
+            </p>
+        </div>
+        <div class="grid-col-span-3">
+            <h3>Sub Section 04</h3>
+            <p>
+                Ut quod quibusdam ut voluptatem consequatur qui voluptatem quisquam quo exercitationem vero. Est amet
+                accusantium sit sint officiis sed recusandae cupiditate et quaerat iusto ut nobis impedit vel autem nisi
+                est accusamus dicta. Eos alias harum qui doloremque omnis qui eveniet pariatur hic expedita sint id quas
+                enim et consectetur cumque qui veniam atque. Et perspiciatis maxime in doloremque dolore ut maiores
+                excepturi a labore error non explicabo odit ut voluptatem dolores.
+            </p>
+        </div>
+        <div class="grid-col-span-2">
+            <h3>Sub Section 05</h3>
+            <p>
+                Et autem error aut unde veniam ut repellendus molestias eum enim dolores ut voluptatem animi sit nulla
+                tempora ut nulla doloribus. Aut sapiente quidem est earum rerum et quae distinctio. Qui autem sint qui
+                necessitatibus dicta ut accusamus repudiandae ut animi galisum cum Quis enim quo magni autem ut
+                veritatis cupiditate.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 06</h3>
+            <p>
+                Qui numquam numquam eos omnis suscipit quo laudantium facere sed Quis dolores et facilis amet. Id iste
+                iure eum porro obcaecati vel consequatur voluptatem. Cum ullam error ea similique autem sed neque
+                consectetur qui corrupti sequi.
+            </p>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
