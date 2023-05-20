@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display|Tiro+Devanagari+Hindi|Reem+Kufi+Ink">
+    <!--  JQuery  -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!--  Mathjax  -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--  Datatable  -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <!--  Chartjs  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Demo PDF</title>
+    <style>
+        /* Document Format */
+
+        @page {
+            size: A4;
+            margin-bottom: 50px;
+            margin-top: 100px;
+        }
+
+        /* Page Separator */
+
+        .page-break {
+            break-before: page;
+        }
+
+        /* Base */
+
+        body {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+
+        /* CSS Features */
+
+        .box {
+            display: flex;
+            flex-flow: row;
+            width: 100%;
+            height: 230px;
+        }
+
+        .left {
+            width: 50%;
+        }
+
+        .left > img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .right {
+            width: 50%;
+            background: #3056D3;
+            padding: 10px 20px;
+            color: #eeeeee;
+            line-height: 25px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .right > ul {
+            padding-left: 20px;
+        }
+
+        /* Languages & Fonts */
+
+        .font-1 {
+            font-family: Playfair Display;
+        }
+
+        .font-2 {
+            font-family: Tiro Devanagari Hindi;
+        }
+
+        .font-3 {
+            font-family: Reem Kufi Ink;
+        }
+
+        .text-deco-1 {
+            text-decoration-line: underline;
+        }
+
+        .text-deco-2 {
+            text-decoration-line: overline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #10b981;
+            color: rgb(225 29 72);
+        }
+
+        /* Chart */
+
+        .chart {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Tables */
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        thead tr {
+            background-color: #e81c4f;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        th, td {
+            padding: 0.1in 0.1in;
+        }
+
+        /* Multi Column Design */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .grid-col-span-2 {
+            grid-column: span 2 / span 2;
+        }
+
+        .grid-col-span-3 {
+            grid-column: span 3 / span 3;
+        }
+
+
+    </style>
+</head>
+<body>
+<section>
+    <h2>Latest HTML & CSS Features</h2>
+    <div class="box">
+        <div class="left">
+            <img alt="Alt attribute of image" title="Hover to see title"
+                 src="https://papercode.co/assets/capability-image-pdf.jpg"/>
+        </div>
+        <div class="right">
+            <h3>HTML & CSS Features</h3>
+            <ul>
+                <li>SVG</li>
+                <li>Canvas</li>
+                <li>CSS Flexbox & Grid</li>
+                <li>CSS Variables, Shapes, Transform and Blend Modes</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <h2>Languages & Fonts</h2>
+    <p id="boop"></p>
+    <p>
+        The following examples use Google Fonts.
+    </p>
+    <h3>Lorem Ipsum - Font: Playfair Display - with text decoration</h3>
+    <p class="font-1">
+        Lorem ipsum dolor sit amet. <span class="text-deco-1">Ex eveniet corrupti</span> et voluptas quisquam est <span
+            class="text-deco-2">tempora eligendi.</span> Et deserunt tempore ut exercitationem porro vel molestiae omnis
+        est velit quia? Eum odit dolorem non dolor doloremque qui consequatur tempore non iure quia a internos sapiente
+        vel corrupti nulla et nostrum nulla.
+    </p>
+    <h3>Hindi - Font: Tiro Devanagari Hindi</h3>
+    <p class="font-2">
+        हमारी पुस्तक वर्णित सार्वजनिक कीसे ऎसाजीस विनिमय अधिकांश अपनि सादगि बातसमय मुख्यतह प्रतिबध्दता समजते होभर पढने
+        डाले। तरहथा। मेंभटृ बाधा संपादक प्रमान पहोच। पुर्व ।क वैश्विक निर्देश केवल ढांचा आंतरजाल सम्पर्क जिवन बनाति
+        समस्याओ विकेन्द्रियकरण हमारी उद्योग वास्तविक अथवा रिती अनुवाद प्रेरना देखने
+    </p>
+    <h3>Arabic RTL (Right to Left Script) - Font: Reem Kufi Ink</h3>
+    <p class="font-3">
+        جيما وباءت ماليزيا، يبق أي, يتم كرسي التي إستعمل ما. قد حاول تغييرات التخطيط حدى, تعد أم ساعة وحلفاؤها
+        الإيطالية. خطّة تسمّى الولايات فقد في, فعل لم والكساد باستحداث الأمريكي. بين فرنسا بالرّغم ويكيبيديا أم, فعل بل
+        فهرست واشتدّت, بلا إجلاء وتنصيب تم. بـ كلّ الخاسرة ويكيبيديا،, دفّة أعمال المؤلّفة قد حدى, أخر أم الساحل بمحاولة
+        الأسيوي.
+    </p>
+</section>
+<section>
+    <h2>Equations</h2>
+    <p>Using MathJax</p>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow data-mjx-texclass="ORD">
+            <mover>
+                <mi mathvariant="normal">&#x2207;</mi>
+                <mo stretchy="false">&#x2192;</mo>
+            </mover>
+        </mrow>
+        <mo>&#xD7;</mo>
+        <mrow data-mjx-texclass="ORD">
+            <mover>
+                <mi>F</mi>
+                <mo stretchy="false">&#x2192;</mo>
+            </mover>
+        </mrow>
+        <mo>=</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>z</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>y</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>y</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>z</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">i</mi>
+        </mrow>
+        <mo>+</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>x</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>z</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>z</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>x</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">j</mi>
+        </mrow>
+        <mo>+</mo>
+        <mrow data-mjx-texclass="INNER">
+            <mo data-mjx-texclass="OPEN">(</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>y</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>x</mi>
+                </mrow>
+            </mfrac>
+            <mo>&#x2212;</mo>
+            <mfrac>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <msub>
+                        <mi>F</mi>
+                        <mi>x</mi>
+                    </msub>
+                </mrow>
+                <mrow>
+                    <mi>&#x2202;</mi>
+                    <mi>y</mi>
+                </mrow>
+            </mfrac>
+            <mo data-mjx-texclass="CLOSE">)</mo>
+        </mrow>
+        <mrow data-mjx-texclass="ORD">
+            <mi mathvariant="bold">k</mi>
+        </mrow>
+    </math>
+</section>
+<section class="page-break">
+    <h2>Chart</h2>
+    <div class="chart">
+        <canvas id="myChart"></canvas>
+    </div>
+    <h3>Explanation</h3>
+    <p>
+        Ea minima ducimus qui dolores atque qui unde dolorem ut atque deserunt a eaque facere et consequatur voluptatem.
+        Qui Quis deserunt eum laborum incidunt At nihil consequuntur qui Quis numquam? Sed cumque quis non odit libero
+        cum nihil exercitationem? A voluptas officiis et minima nobis et officiis labore ut consequatur quia et sequi
+        enim?
+    </p>
+    <script>
+        const CHART_COLORS = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
+        };
+
+        function rand_numbers() {
+            var data = [];
+
+            for (var i = 0; i < 7; ++i) {
+                data.push(Math.random() * 100);
+            }
+            return data;
+        }
+
+        const data = {
+            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Grey'],
+            datasets: [
+                {
+                    label: 'Dataset 1',
+                    data: rand_numbers(),
+                    backgroundColor: Object.values(CHART_COLORS),
+                }
+            ]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Doughnut Chart'
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'Custom Chart Subtitle'
+                    }
+                }
+            },
+        };
+
+        const ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, config);
+        window.addEventListener('beforeprint', () => {
+            myChart.resize(700, 700);
+        });
+    </script>
+</section>
+<section class="page-break">
+    <h2>Table</h2>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011-04-25</td>
+            <td>$320,800</td>
+        </tr>
+        <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>63</td>
+            <td>2011-07-25</td>
+            <td>$170,750</td>
+        </tr>
+        <tr>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>San Francisco</td>
+            <td>66</td>
+            <td>2009-01-12</td>
+            <td>$86,000</td>
+        </tr>
+        <tr>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2012-03-29</td>
+            <td>$433,060</td>
+        </tr>
+        <tr>
+            <td>Airi Satou</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>33</td>
+            <td>2008-11-28</td>
+            <td>$162,700</td>
+        </tr>
+        <tr>
+            <td>Brielle Williamson</td>
+            <td>Integration Specialist</td>
+            <td>New York</td>
+            <td>61</td>
+            <td>2012-12-02</td>
+            <td>$372,000</td>
+        </tr>
+        <tr>
+            <td>Herrod Chandler</td>
+            <td>Sales Assistant</td>
+            <td>San Francisco</td>
+            <td>59</td>
+            <td>2012-08-06</td>
+            <td>$137,500</td>
+        </tr>
+        <tr>
+            <td>Rhona Davidson</td>
+            <td>Integration Specialist</td>
+            <td>Tokyo</td>
+            <td>55</td>
+            <td>2010-10-14</td>
+            <td>$327,900</td>
+        </tr>
+        <tr>
+            <td>Colleen Hurst</td>
+            <td>Javascript Developer</td>
+            <td>San Francisco</td>
+            <td>39</td>
+            <td>2009-09-15</td>
+            <td>$205,500</td>
+        </tr>
+        <tr>
+            <td>Sonya Frost</td>
+            <td>Software Engineer</td>
+            <td>Edinburgh</td>
+            <td>23</td>
+            <td>2008-12-13</td>
+            <td>$103,600</td>
+        </tr>
+        <tr>
+            <td>Jena Gaines</td>
+            <td>Office Manager</td>
+            <td>London</td>
+            <td>30</td>
+            <td>2008-12-19</td>
+            <td>$90,560</td>
+        </tr>
+        <tr>
+            <td>Quinn Flynn</td>
+            <td>Support Lead</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2013-03-03</td>
+            <td>$342,000</td>
+        </tr>
+        <tr>
+            <td>Charde Marshall</td>
+            <td>Regional Director</td>
+            <td>San Francisco</td>
+            <td>36</td>
+            <td>2008-10-16</td>
+            <td>$470,600</td>
+        </tr>
+        <tr>
+            <td>Haley Kennedy</td>
+            <td>Senior Marketing Designer</td>
+            <td>London</td>
+            <td>43</td>
+            <td>2012-12-18</td>
+            <td>$313,500</td>
+        </tr>
+        <tr>
+            <td>Tatyana Fitzpatrick</td>
+            <td>Regional Director</td>
+            <td>London</td>
+            <td>19</td>
+            <td>2010-03-17</td>
+            <td>$385,750</td>
+        </tr>
+        <tr>
+            <td>Michael Silva</td>
+            <td>Marketing Designer</td>
+            <td>London</td>
+            <td>66</td>
+            <td>2012-11-27</td>
+            <td>$198,500</td>
+        </tr>
+        <tr>
+            <td>Paul Byrd</td>
+            <td>Chief Financial Officer (CFO)</td>
+            <td>New York</td>
+            <td>64</td>
+            <td>2010-06-09</td>
+            <td>$725,000</td>
+        </tr>
+        <tr>
+            <td>Gloria Little</td>
+            <td>Systems Administrator</td>
+            <td>New York</td>
+            <td>59</td>
+            <td>2009-04-10</td>
+            <td>$237,500</td>
+        </tr>
+        <tr>
+            <td>Bradley Greer</td>
+            <td>Software Engineer</td>
+            <td>London</td>
+            <td>41</td>
+            <td>2012-10-13</td>
+            <td>$132,000</td>
+        </tr>
+        <tr>
+            <td>Dai Rios</td>
+            <td>Personnel Lead</td>
+            <td>Edinburgh</td>
+            <td>35</td>
+            <td>2012-09-26</td>
+            <td>$217,500</td>
+        </tr>
+        <tr>
+            <td>Jenette Caldwell</td>
+            <td>Development Lead</td>
+            <td>New York</td>
+            <td>30</td>
+            <td>2011-09-03</td>
+            <td>$345,000</td>
+        </tr>
+        <tr>
+            <td>Yuri Berry</td>
+            <td>Chief Marketing Officer (CMO)</td>
+            <td>New York</td>
+            <td>40</td>
+            <td>2009-06-25</td>
+            <td>$675,000</td>
+        </tr>
+        <tr>
+            <td>Caesar Vance</td>
+            <td>Pre-Sales Support</td>
+            <td>New York</td>
+            <td>21</td>
+            <td>2011-12-12</td>
+            <td>$106,450</td>
+        </tr>
+        <tr>
+            <td>Doris Wilder</td>
+            <td>Sales Assistant</td>
+            <td>Sydney</td>
+            <td>23</td>
+            <td>2010-09-20</td>
+            <td>$85,600</td>
+        </tr>
+        <tr>
+            <td>Angelica Ramos</td>
+            <td>Chief Executive Officer (CEO)</td>
+            <td>London</td>
+            <td>47</td>
+            <td>2009-10-09</td>
+            <td>$1,200,000</td>
+        </tr>
+        <tr>
+            <td>Gavin Joyce</td>
+            <td>Developer</td>
+            <td>Edinburgh</td>
+            <td>42</td>
+            <td>2010-12-22</td>
+            <td>$92,575</td>
+        </tr>
+        <tr>
+            <td>Jennifer Chang</td>
+            <td>Regional Director</td>
+            <td>Singapore</td>
+            <td>28</td>
+            <td>2010-11-14</td>
+            <td>$357,650</td>
+        </tr>
+        <tr>
+            <td>Brenden Wagner</td>
+            <td>Software Engineer</td>
+            <td>San Francisco</td>
+            <td>28</td>
+            <td>2011-06-07</td>
+            <td>$206,850</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable(
+                {
+                    paging: false,
+                    "searching": false,
+                    "pageLength": 50,
+                    "ordering": false,
+                    "info": false,
+                }
+            );
+        });
+    </script>
+</section>
+<section>
+    <h2>Multi Column Design</h2>
+    <div class="grid">
+        <div class="">
+            <h3>Sub Section 01</h3>
+            <p>
+                Est quia necessitatibus ex enim delectus in necessitatibus molestiae. Et nesciunt blanditiis 33 tempore
+                quos
+                in ipsum omnis. Et necessitatibus ullam non libero perferendis 33 repellat sint in nemo expedita est
+                Quis
+                ullam in earum sunt.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 02</h3>
+            <p>
+                Ut dolore dignissimos non laudantium quia et dicta iure est nobis atque quo laudantium sint qui omnis
+                nesciunt aut dolorum voluptatibus. Id voluptatum vitae aut tempore provident qui enim sapiente nam
+                distinctio molestiae sed voluptates mollitia At quis voluptate.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 03</h3>
+            <p>
+                Hic asperiores eaque et perspiciatis corporis ut nostrum nostrum id quia suscipit. Est maiores quisquam
+                est distinctio aspernatur et temporibus tenetur vel sunt reiciendis rem facere repellat ea porro esse
+                qui velit illo. 33 consequatur nihil eum consequuntur fuga aut maxime quia.
+            </p>
+        </div>
+        <div class="grid-col-span-3">
+            <h3>Sub Section 04</h3>
+            <p>
+                Ut quod quibusdam ut voluptatem consequatur qui voluptatem quisquam quo exercitationem vero. Est amet
+                accusantium sit sint officiis sed recusandae cupiditate et quaerat iusto ut nobis impedit vel autem nisi
+                est accusamus dicta. Eos alias harum qui doloremque omnis qui eveniet pariatur hic expedita sint id quas
+                enim et consectetur cumque qui veniam atque. Et perspiciatis maxime in doloremque dolore ut maiores
+                excepturi a labore error non explicabo odit ut voluptatem dolores.
+            </p>
+        </div>
+        <div class="grid-col-span-2">
+            <h3>Sub Section 05</h3>
+            <p>
+                Et autem error aut unde veniam ut repellendus molestias eum enim dolores ut voluptatem animi sit nulla
+                tempora ut nulla doloribus. Aut sapiente quidem est earum rerum et quae distinctio. Qui autem sint qui
+                necessitatibus dicta ut accusamus repudiandae ut animi galisum cum Quis enim quo magni autem ut
+                veritatis cupiditate.
+            </p>
+        </div>
+        <div class="">
+            <h3>Sub Section 06</h3>
+            <p>
+                Qui numquam numquam eos omnis suscipit quo laudantium facere sed Quis dolores et facilis amet. Id iste
+                iure eum porro obcaecati vel consequatur voluptatem. Cum ullam error ea similique autem sed neque
+                consectetur qui corrupti sequi.
+            </p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
